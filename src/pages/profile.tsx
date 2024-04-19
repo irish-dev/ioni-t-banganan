@@ -2,9 +2,9 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar,
   IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,
   IonAlert, IonButton  } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
-import './Tab1.css';
+import './profile.css';
 
-const Tab1: React.FC = () => {
+const profile: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
@@ -56,4 +56,4 @@ const Tab1: React.FC = () => {
   );
 };
 
-export default Tab1;
+export default profile;

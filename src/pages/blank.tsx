@@ -2,33 +2,24 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/rea
 import ExploreContainer from '../components/ExploreContainer';
 import './profile.css';
 
-const Home: React.FC = () => {
+const blank: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Home</IonTitle>
+          <IonTitle>blank</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Home</IonTitle>
+            <IonTitle size="large">blank</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ion-card>
-  <ion-card-header>
-    <ion-card-title>Irish</ion-card-title>
-    <ion-card-subtitle>student</ion-card-subtitle>
-  </ion-card-header>
-
-  <ion-card-content>
-    Nothing more, nothing less.
-  </ion-card-content>
-</ion-card>
+        <ExploreContainer name="blank" />
       </IonContent>
     </IonPage>
   );
 };
 
-export default Home;
+export default blank;

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
 import './clickcounter.css';
 
 const clickcounter: React.FC = () => {
@@ -19,8 +18,11 @@ const clickcounter: React.FC = () => {
             <IonTitle size="large">Click Counter</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <button onClick={() => setClickCount(clickCount + 1)}>Click me</button>
-        <p className="ion-margin-top">Click count: {clickCount}</p>
+       
+        <p className="ion-margin-top click-count">Click count: {clickCount}</p>
+        <button className="circle-button" onClick={() => setClickCount(clickCount + 1)}>
+          Click me
+        </button>
       </IonContent>
     </IonPage>
   );

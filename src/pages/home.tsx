@@ -49,7 +49,7 @@ function Home() {
             <IonThumbnail slot="start">
               <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
             </IonThumbnail>
-            <IonLabel>Todo-List</IonLabel>
+            <IonLabel></IonLabel>
           </IonItem>
 
           <IonItem lines="none">

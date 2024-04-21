@@ -66,8 +66,10 @@ const App: React.FC = () => (
           <Route path="/calculator">
             <Calculator />
           </Route>
+
          
           {/* Application default route */}
+
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
@@ -81,19 +83,14 @@ const App: React.FC = () => (
           </IonTabButton>\
           <IonTabButton tab="blank" href="/blank">
             <IonIcon aria-hidden="true" icon={closeOutline} />
-            <IonLabel>blank</IonLabel>
+            <IonLabel>Blank</IonLabel>
           </IonTabButton>
-
-          <IonTabButton tab="blank" href="/blank">
-            <IonIcon aria-hidden="true" icon={closeOutline} />
-            <IonLabel>blank</IonLabel>
-            </IonTabButton>
-          
-
           <IonTabButton tab="profile" href="/profile">
             <IonIcon aria-hidden="true" icon={personOutline} />
-            <IonLabel>profile</IonLabel>
-          
+
+            <IonLabel>Profile</IonLabel>
+          </IonTabButton>
+
           </IonTabButton>
         </IonTabBar>
       </IonTabs>

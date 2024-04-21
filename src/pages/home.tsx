@@ -35,21 +35,21 @@ function Home() {
             <IonThumbnail slot="start">
               <img alt="Silhouette of mountains" src="/assets/click.png" />
             </IonThumbnail>
-            <IonButton href='clickcounter'>Clickcounter</IonButton>
+            <IonButton href='/clickcounter'>Clickcounter</IonButton>
           </IonItem>
 
           <IonItem>
             <IonThumbnail slot="start">
               <img alt="Silhouette of mountains" src="/assets/calculator.png" />
             </IonThumbnail>
-            <IonButton href='/Calculator'>Calculator</IonButton>
+            <IonButton href='/calculator'>Calculator</IonButton>
           </IonItem>
 
           <IonItem>
             <IonThumbnail slot="start">
               <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
             </IonThumbnail>
-            <IonLabel></IonLabel>
+            <IonLabel>Todo-List</IonLabel>
           </IonItem>
 
           <IonItem lines="none">

@@ -18,7 +18,9 @@ import Home from './pages/home';
 
 import Tab1 from './pages/profile';
 
+import Clickcounter from './pages/clickcounter';
 
+import Calculator from './pages/calculator';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -63,6 +65,12 @@ const App: React.FC = () => (
           <Route exact path="/profile">
             <Tab1 />
           </Route>
+          <Route exact path="/clickcounter">
+            <clickcounter />
+          </Route> 
+          <Route path="/calculator">
+            <calculator />
+          </Route>
           <Route exact path="/">
             <Redirect to="/tab1" />
           </Route>
@@ -74,11 +82,11 @@ const App: React.FC = () => (
           </IonTabButton>\
           <IonTabButton tab="blank" href="/blank">
             <IonIcon aria-hidden="true" icon={closeOutline} />
-            <IonLabel>blank</IonLabel>
+            <IonLabel>Blank</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab1" href="/profile">
             <IonIcon aria-hidden="true" icon={personOutline} />
-            <IonLabel>Tab 1</IonLabel>
+            <IonLabel>Profile</IonLabel>
           </IonTabButton>
           
         </IonTabBar>

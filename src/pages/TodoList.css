@@ -1,0 +1,22 @@
+/* TodoList.css */
+
+.todo-list-container {
+    background-color: #5a3030; /* Set your desired background color */
+    padding: 20px;
+  }
+  
+  .todo-item {
+    background-color: #fff; /* Set background color for each todo item */
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .todo-item ion-label {
+    flex: 1;
+  }
+  
+  .todo-item ion-button {
+    margin-left: 5px;
+  }
+
+ 

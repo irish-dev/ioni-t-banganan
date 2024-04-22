@@ -10,9 +10,10 @@ import {
   IonLabel,
   IonList,
   IonThumbnail,
+  
 } from '@ionic/react';
 
-import './profile.css';
+import './Home.css';
 
 function Home() {
   return (
@@ -35,23 +36,23 @@ function Home() {
             <IonThumbnail slot="start">
               <img alt="Silhouette of mountains" src="/assets/click.png" />
             </IonThumbnail>
-            <IonButton href='/clickcounter'>Clickcounter</IonButton>
+            <IonButton href='clickcounter'>Clickcounter</IonButton>
           </IonItem>
 
           <IonItem>
             <IonThumbnail slot="start">
               <img alt="Silhouette of mountains" src="/assets/calculator.png" />
             </IonThumbnail>
-            <IonButton href='/calculator'>Calculator</IonButton>
+            <IonButton href='/Calculator'>Calculator</IonButton>
           </IonItem>
-
+          
           <IonItem>
             <IonThumbnail slot="start">
-              <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+              <img alt="Silhouette of mountains" src="/assets/todo.png" />
             </IonThumbnail>
-            <IonLabel>Todo-List</IonLabel>
+            <IonButton href='/TodoList'>TodoList</IonButton>
           </IonItem>
-
+          
           <IonItem lines="none">
             <IonThumbnail slot="start">
               <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />

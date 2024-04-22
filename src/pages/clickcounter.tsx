@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonButtons } from '@ionic/react';
+import ExploreContainer from '../components/ExploreContainer';
 import './clickcounter.css';
 
-const clickcounter: React.FC = () => {
+
+
+const Clickcounter: React.FC = () => {
   const [clickCount, setClickCount] = useState(0);
 
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
+        <IonButtons slot="start">
+          <IonButton href='/Home'> Back</IonButton>
+          </IonButtons>
           <IonTitle>Click Counter</IonTitle>
         </IonToolbar>
       </IonHeader>
@@ -28,4 +34,4 @@ const clickcounter: React.FC = () => {
   );
 };
 
-export default clickcounter;
+export default Clickcounter;

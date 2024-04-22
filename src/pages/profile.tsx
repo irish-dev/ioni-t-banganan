@@ -19,7 +19,7 @@ const Profile: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonCard>
-        <img alt="Silhouette of mountains" src="./assets/panda.webp" />
+        <img alt="Silhouette of mountains" src="./assets/panda.jpg" />
         <IonCardHeader>
           <IonCardTitle>irish</IonCardTitle>
           <IonCardSubtitle>student</IonCardSubtitle>

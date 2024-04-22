@@ -10,6 +10,7 @@ import {
   IonLabel,
   IonList,
   IonThumbnail,
+  
 } from '@ionic/react';
 
 import './Home.css';
@@ -18,8 +19,16 @@ function Home() {
   return (
     <IonCard>
       <IonCardHeader>
-        <IonCardTitle>Welcome to my Application</IonCardTitle>
-        <IonCardSubtitle></IonCardSubtitle>
+      <ion-card>
+  <ion-card-header>
+    <ion-card-title>Irish</ion-card-title>
+    <ion-card-subtitle>student</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    Nothing more, nothing less.
+  </ion-card-content>
+</ion-card>
       </IonCardHeader>
       <IonCardContent>
         <IonList>
@@ -36,7 +45,13 @@ function Home() {
             </IonThumbnail>
             <IonButton href='/Calculator'>Calculator</IonButton>
           </IonItem>
-
+          
+          <IonItem>
+            <IonThumbnail slot="start">
+              <img alt="Silhouette of mountains" src="/assets/todo.png" />
+            </IonThumbnail>
+            <IonButton href='/TodoList'>TodoList</IonButton>
+          </IonItem>
           
           <IonItem lines="none">
             <IonThumbnail slot="start">

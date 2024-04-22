@@ -10,17 +10,13 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { calculatorOutline, closeOutline, ellipse, homeOutline, personOutline, speedometerOutline, square, triangle } from 'ionicons/icons';
+import { calculatorOutline, closeCircleSharp, closeOutline, ellipse, homeOutline, personCircleOutline, personOutline, speedometerOutline, square, triangle } from 'ionicons/icons';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
+import Clickcounter from './pages/Clickcounter';
+import Calculator from './pages/Calculator';
+import TodoList from './pages/TodoList'
 
-// Home resources
-import Home from './pages/home';
-
-
-import Tab1 from './pages/profile';
-
-import Clickcounter from './pages/clickcounter';
-
-import Calculator from './pages/calculator';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -37,17 +33,6 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
-/* import '@ionic/react/css/palettes/dark.always.css'; */
-/* import '@ionic/react/css/palettes/dark.class.css'; */
-import '@ionic/react/css/palettes/dark.system.css';
-
 /* Theme variables */
 import './theme/variables.css';
 
@@ -58,37 +43,52 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-           {/* Home Router */}
-           <Route exact path="/home">
+
+
+          {/* Home Router */}
+          <Route exact path="/Home">
             <Home />
           </Route>
-          <Route exact path="/profile">
-            <Tab1 />
+          
+          
+          <Route exact path="/Profile">
+            <Profile />
           </Route>
-          <Route exact path="/clickcounter">
-            <clickcounter />
-          </Route> 
-          <Route path="/calculator">
-            <calculator />
+         
+         
+          <Route exact path="/Clickcounter">
+            <Clickcounter />
           </Route>
+          
+          
+          <Route path="/Calculator">
+            <Calculator />
+          </Route>
+         
+          {/* Application default route */}
           <Route exact path="/">
-            <Redirect to="/tab1" />
+            <Redirect to="/Home" />
           </Route>
+        
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-        <IonTabButton tab="home" href="/home">
+          {/* Home tab button */}
+          <IonTabButton tab="Home" href="/Home">
             <IonIcon aria-hidden="true" icon={homeOutline} />
             <IonLabel>Home</IonLabel>
-          </IonTabButton>\
-          <IonTabButton tab="blank" href="/blank">
+          </IonTabButton>
+
+          <IonTabButton tab="Blank" href="/Blank">
             <IonIcon aria-hidden="true" icon={closeOutline} />
             <IonLabel>Blank</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab1" href="/profile">
+            </IonTabButton>
+          
+
+          <IonTabButton tab="Profile" href="/Profile">
             <IonIcon aria-hidden="true" icon={personOutline} />
             <IonLabel>Profile</IonLabel>
-          </IonTabButton>
           
+          </IonTabButton>
         </IonTabBar>
       </IonTabs>
     </IonReactRouter>

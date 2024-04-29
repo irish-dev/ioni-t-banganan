@@ -28,13 +28,11 @@ import {
   IonAvatar,
   IonThumbnail
 } from '@ionic/react';
-import './profile.css';
 
 //Dynamic data reference
 import rizzCard from '../../assets/json/rizzCard.json';
 
-const Profile: React.FC = () => {
-
+const QuoteGenerator: React.FC = () => {
 
   const [showAlert, setShowAlert] = useState(false);
   const [randomIndex, setRandomIndex] =  useState<number | null>(null); // State to store random index
@@ -65,57 +63,41 @@ const Profile: React.FC = () => {
     setRandomIndex(0); // Reset the index to 0
     setShowAlert(false); // Hide the alert
   };
-
   
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>profile</IonTitle>
+          <IonTitle>Quote Generator</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
+      <IonContent className='ion-padding'>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Profile</IonTitle>
+            <IonTitle size="large">Quote Generator</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonCard>
-        <img alt="Silhouette of mountains" src="./assets/panda.jpg" />
-        <IonCardHeader>
-          <IonCardTitle>irish</IonCardTitle>
-          <IonCardSubtitle>student</IonCardSubtitle>
-        </IonCardHeader>
-  
-        <IonCardContent>Don't be trapped in someone else's dream</IonCardContent>
-        <IonButton id="present-alert" expand='full'>Click Me</IonButton>
-  
-  
-      </IonCard><IonAlert
-          header="Alert!"
-          trigger="present-alert"
-          buttons={[
-            {
-              text: 'Cancel',
-              role: 'cancel',
-              handler: () => {
-                console.log('Alert canceled');
-              },
-            },
-            {
-              text: 'OK',
-              role: 'confirm',
-              handler: () => {
-                console.log('Alert confirmed');
-              },
-            },
-          ]}
-          onDidDismiss={({ detail }) => console.log('Dismissed with role: ${detail.role}')}
-        ></IonAlert>
-        
+
+        <img alt="Silhouette of mountains" src="/assets/sm.png" />
+          {/*Button Trigger*/}
+          <IonGrid>
+            <IonRow>
+                <IonCol size="" push="">
+                <IonButton id="present-alert" color="warning" expand="full" onClick={handleOpenAlert}>Click me</IonButton> 
+                <IonAlert
+                  isOpen={showAlert}
+                  onDidDismiss={handleAlertDismiss} // Call the handleAlertDismiss function when the alert is closed
+                  header="Rizz"
+                  subHeader=""
+                  message={renderRandomMessage()}
+                  buttons={['Close']}
+                />
+                </IonCol>
+            </IonRow>
+          </IonGrid>
       </IonContent>
     </IonPage>
   );
 };
 
-export default Profile;
+export default  QuoteGenerator;

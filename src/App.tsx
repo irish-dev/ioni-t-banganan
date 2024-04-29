@@ -17,6 +17,7 @@ import Profile from './pages/profile';
 import Clickcounter from './pages/clickcounter';
 import Calculator from './pages/calculator';
 import TodoList from './pages/TodoList'
+import Qoutegenerator from './pages/quotegenerator'
 
 
 
@@ -62,6 +63,10 @@ const App: React.FC = () => (
          
           <Route path="/Calculator">
             <Calculator />
+          </Route>
+
+          <Route path="/qoutegenerator">
+            <Qoutegenerator />
           </Route>
          
           {/* Application default route */}

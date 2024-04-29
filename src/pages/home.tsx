@@ -34,6 +34,12 @@ const cardData = [
     link: '/todolist',
     img: '/assets/todo.png',
   },
+  {
+    title: 'Qoute generator',
+    subtitle: 'Applet #4',
+    link: '/qoutegenerator',
+    img: '/assets/qt.png',
+  }
 ];
 
 function Home() {

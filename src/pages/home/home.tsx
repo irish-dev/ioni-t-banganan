@@ -9,7 +9,7 @@ import {
   IonList,
   IonItem,
   IonThumbnail,
-  IonLabel,
+  IonLabel, 
 } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
 import './Home.css';

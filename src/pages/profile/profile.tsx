@@ -73,7 +73,7 @@ const Profile: React.FC = () => {
       </IonAvatar>
       {/* User info */}
       <div className="profile-info">
-        <h2>Irish B. Banganan</h2>
+        <h2>Irish Banganan</h2>
         <p>"Strong enough to handle it all."</p>
 
         

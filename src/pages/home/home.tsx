@@ -39,6 +39,12 @@ const cardData = [
     subtitle: 'Applet #4',
     link: '/qoutegenerator',
     img: '/assets/qt.png',
+  },
+  {
+    title: 'Notes',
+    subtitle: 'Applet #5',
+    link: '/notes',
+    img: '/assets/nt.png',
   }
 ];
 

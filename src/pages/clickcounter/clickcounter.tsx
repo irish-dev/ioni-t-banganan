@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonButtons } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
 import './clickcounter.css';
 
 

@@ -12,12 +12,13 @@ import {
 import { IonReactRouter } from '@ionic/react-router';
 import { calculatorOutline, closeOutline, ellipse, homeOutline, personOutline, speedometerOutline, square, triangle } from 'ionicons/icons';
 
-import Home from './pages/home';
-import Profile from './pages/profile';
-import Clickcounter from './pages/clickcounter';
-import Calculator from './pages/calculator';
-import TodoList from './pages/TodoList'
-import Qoutegenerator from './pages/quotegenerator'
+import Home from './pages/home/home';
+import Profile from './pages/profile/profile';
+import Clickcounter from './pages/clickcounter/clickcounter';
+import Calculator from './pages/calculator/calculator';
+import TodoList from './pages/todolist/TodoList';
+import Qoutegenerator from './pages/quotegenerator';
+import Notes from './pages/notes/notes';
 
 
 
@@ -68,6 +69,11 @@ const App: React.FC = () => (
           <Route path="/qoutegenerator">
             <Qoutegenerator />
           </Route>
+
+          <Route path="/notes">
+            <Notes />
+          </Route>
+         
          
           {/* Application default route */}
           <Route exact path="/">

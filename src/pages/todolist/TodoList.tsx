@@ -1,36 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonLabel, IonCheckbox, IonInput, IonButton, IonIcon, IonButtons, IonBackButton } from '@ionic/react';
 import './TodoList.css';
 import { trash, create } from 'ionicons/icons';
+
+// Firebase
+import { collection, addDoc, onSnapshot, updateDoc, doc, deleteDoc } from 'firebase/firestore';
+import { db } from './firebase';
 
 const TodoList: React.FC = () => {
   const [todos, setTodos] = useState<string[]>([]);
   const [newTodo, setNewTodo] = useState<string>('');
   const [editIndex, setEditIndex] = useState<number>(-1);
 
-  const addTodo = () => {
+  useEffect(() => {
+    const unsubscribe = onSnapshot(collection(db, 'todos'), (snapshot) => {
+      const todosData = snapshot.docs.map(doc => doc.data().text);
+      setTodos(todosData);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const addTodo = async () => {
     if (newTodo.trim() !== '') {
-      setTodos([...todos, newTodo]);
+      await addDoc(collection(db, 'todos'), { text: newTodo });
       setNewTodo('');
     }
   };
 
-  const removeTodo = (index: number) => {
-    const updatedTodos = [...todos];
-    updatedTodos.splice(index, 1);
-    setTodos(updatedTodos);
+  const removeTodo = async (index: number) => {
+    const todoSnapshot = await getTodoSnapshotAtIndex(index);
+    if (todoSnapshot) {
+      await deleteDoc(todoSnapshot.ref);
+    }
   };
 
-  const editTodo = (index: number) => {
+  const editTodo = async (index: number) => {
     setEditIndex(index);
     setNewTodo(todos[index]);
   };
 
-  const updateTodo = () => {
+  const updateTodo = async () => {
     if (newTodo.trim() !== '') {
-      const updatedTodos = [...todos];
-      updatedTodos[editIndex] = newTodo;
-      setTodos(updatedTodos);
+      const todoSnapshot = await getTodoSnapshotAtIndex(editIndex);
+      if (todoSnapshot) {
+        await updateDoc(todoSnapshot.ref, { text: newTodo });
+      }
       setEditIndex(-1);
       setNewTodo('');
     }
@@ -41,10 +56,20 @@ const TodoList: React.FC = () => {
     setNewTodo('');
   };
 
-  const toggleTodo = (index: number) => {
-    const updatedTodos = [...todos];
-    updatedTodos[index] = updatedTodos[index].startsWith('✅ ') ? updatedTodos[index].slice(2) : '✅ ' + updatedTodos[index];
-    setTodos(updatedTodos);
+  const toggleTodo = async (index: number) => {
+    const todoSnapshot = await getTodoSnapshotAtIndex(index);
+    if (todoSnapshot) {
+      const todoData = todoSnapshot.data();
+      if (todoData) {
+        await updateDoc(todoSnapshot.ref, { text: todoData.text.startsWith('✅ ') ? todoData.text.slice(2) : '✅ ' + todoData.text });
+      }
+    }
+  };
+
+  const getTodoSnapshotAtIndex = async (index: number) => {
+    const snapshot = await onSnapshot(collection(db, 'todos'));
+    const todoSnapshots = snapshot.docs;
+    return todoSnapshots[index];
   };
 
   return (
@@ -52,7 +77,7 @@ const TodoList: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-          <IonButton href='/Home'> Back</IonButton>
+            <IonButton href='/Home'> Back</IonButton>
           </IonButtons>
           <IonTitle>Todo List</IonTitle>
         </IonToolbar>
@@ -66,7 +91,7 @@ const TodoList: React.FC = () => {
 
           {todos.map((todo, index) => (
             <IonItem key={index}>
-              <IonCheckbox slot="start" />
+              <IonCheckbox slot="start" onClick={() => toggleTodo(index)} />
               <IonLabel>{todo}</IonLabel>
               <IonButton slot="end" color="light" onClick={() => removeTodo(index)}>
                 <IonIcon icon={trash} />

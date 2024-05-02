@@ -34,7 +34,7 @@ import './notes.css';
 import { collection, addDoc, onSnapshot,updateDoc,doc, deleteDoc} from 'firebase/firestore';
 import { db } from './firebase';
 
-const Todolist: React.FC = () => {
+const notes: React.FC = () => {
   const [notes, readNotes] = useState<{ id: string; title: string; description: string;dateAdded: string; }[]>([]);
   const [newTitle, setNewTitle] = useState<string>('');
   const [newDescription, setNewDescription] = useState<string>('');
@@ -233,4 +233,4 @@ const deleteNote = async (index: number) => {
   );
 };
 
-export default Todolist;
+export default notes;

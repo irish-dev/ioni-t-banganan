@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonLabel, IonCheckbox, IonInput, IonButton, IonIcon, IonButtons, IonBackButton } from '@ionic/react';
 import './TodoList.css';
 import { trash, create } from 'ionicons/icons';
+import { getDocs } from 'firebase/firestore';
+
 
 // Firebase
 import { collection, addDoc, onSnapshot, updateDoc, doc, deleteDoc } from 'firebase/firestore';
@@ -67,11 +69,11 @@ const TodoList: React.FC = () => {
   };
 
   const getTodoSnapshotAtIndex = async (index: number) => {
-    const snapshot = await onSnapshot(collection(db, 'todos'));
-    const todoSnapshots = snapshot.docs;
+    const querySnapshot = await getDocs(collection(db, 'todos'));
+    const todoSnapshots = querySnapshot.docs;
     return todoSnapshots[index];
   };
-
+  
   return (
     <IonPage>
       <IonHeader>

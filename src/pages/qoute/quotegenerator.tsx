@@ -7,12 +7,19 @@ const QuoteGenerator: React.FC = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [quotes, setQuotes] = useState<{ id: number; message: string; }[]>([]);
 
+
+  interface Quote {
+    id: number;
+    message: string;
+  }
+
   const fetchQuotes = async () => {
     const quotesCollection = collection(db, 'quotes');
     const snapshot = await getDocs(quotesCollection);
-    const fetchedQuotes = snapshot.docs.map(doc => doc.data());
+    const fetchedQuotes: Quote[] = snapshot.docs.map(doc => doc.data() as Quote);
     setQuotes(fetchedQuotes);
   };
+  
 
   const generateRandomIndex = () => {
     return Math.floor(Math.random() * quotes.length);

@@ -1,9 +1,12 @@
 {
-  "name": "ionic-app-base",
+  "name": "ionic-t-banganan",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://irish-dev.github.io/ionic-t-banganan/",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
@@ -41,6 +44,7 @@
     "cypress": "^13.5.0",
     "eslint": "^8.35.0",
     "eslint-plugin-react": "^7.32.2",
+    "gh-pages": "^6.1.1",
     "jsdom": "^22.1.0",
     "terser": "^5.4.0",
     "typescript": "^5.1.6",
@@ -48,3 +52,4 @@
     "vitest": "^0.34.6"
   }
 }
+

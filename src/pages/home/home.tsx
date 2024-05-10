@@ -19,42 +19,42 @@ const cardData = [
   {
     title: 'Clickcounter',
     subtitle: 'Applet #1',
-    link: '/clickcounter',
+    link: '/clickcounter/clickcounter',
     img: '/assets/click.png',
   },
   {
     title: 'Calculator',
     subtitle: 'Applet #2',
-    link: '/calculator',
+    link: '/calculator/calculator',
     img: '/assets/calculator.png',
   },
   {
     title: 'Todo List',
     subtitle: 'Applet #3',
-    link: '/todolist',
+    link: '/todolist/todolist',
     img: '/assets/todo.png',
   },
   {
-    title: 'Qoute generator',
+    title: 'Quote generator',
     subtitle: 'Applet #4',
-    link: '/qoutegenerator',
+    link: '/quote/quotegenerator',
     img: '/assets/qt.png',
   },
   {
     title: 'Notes',
     subtitle: 'Applet #5',
-    link: '/notes',
+    link: '/notes/notes',
     img: '/assets/nt.png',
   }
 ];
 
-function Home() {
-  // Initialize state for search term
-  const [searchTerm, setSearchTerm] = useState('');
+const Home: React.FC = () => {
+  const [search, setSearch] = useState<string>('');
+
+  // Access the history object to navigate between routes
   const history = useHistory();
 
-  // Function to handle card click events
-  const handleCardClick = (link) => {
+  const handleCardClick = (link: string) => {
     history.push(link);
   };
 
@@ -68,8 +68,8 @@ function Home() {
       <IonContent>
         {/* Search bar to handle search term input */}
         <IonSearchbar
-          value={searchTerm}
-          onIonChange={(e) => setSearchTerm(e.detail.value ?? '')}
+          value={search}
+          onIonChange={(e) => setSearch(e.detail.value ?? '')}
           placeholder="Search applications"
         />
         {/* Render the filtered list of applet cards */}
@@ -77,7 +77,7 @@ function Home() {
           {cardData
             // Filter card data based on the search term (case-insensitive comparison)
             .filter((card) =>
-              card.title.toLowerCase().includes(searchTerm.toLowerCase())
+              card.title.toLowerCase().includes(search.toLowerCase())
             )
             // Map filtered card data to IonItem components
             .map((card, index) => (
